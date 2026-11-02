@@ -1,0 +1,6 @@
+{
+  "name": "Vineyard.vn - Quà Tết Doanh Nghiệp 2027",
+  "description": "Bộ sưu tập quà Tết HAMPER cao cấp dành cho doanh nghiệp từ Vineyard.vn (Bình Minh Group). Giải pháp quà tặng đối tác, in logo, chiết khấu số lượng lớn.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

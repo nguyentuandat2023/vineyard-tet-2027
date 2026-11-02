@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    --color-brand-red: #B52C32;
+    --color-burgundy: #68151F;
+    --color-gold: #C49B43;
+    --color-champagne: #E8D5A7;
+    --color-ivory: #F7F3EC;
+    --color-charcoal: #282321;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-padding-top: 5rem;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Luxury gold text and accent effects */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #F3E7C4 0%, #C49B43 50%, #A37926 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-bright {
+  background: linear-gradient(135deg, #FFF6D6 0%, #E8D5A7 50%, #C49B43 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-subtle {
+  border-color: rgba(196, 155, 67, 0.35);
+}
+
+.bg-burgundy-rich {
+  background: radial-gradient(circle at top center, #841B26 0%, #68151F 55%, #420A10 100%);
+}
+
+.bg-pattern-luxury {
+  background-color: #68151F;
+  background-image: radial-gradient(rgba(196, 155, 67, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
