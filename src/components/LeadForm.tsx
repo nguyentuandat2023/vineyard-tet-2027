@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle2, AlertCircle, Phone, Building2, User, Mail, Gift, Layers, FileText, Download, RefreshCw } from 'lucide-react';
-import { validateLeadForm, saveLead, LeadFormData, SavedLead } from '../utils/validation';
+import { validateLeadForm, saveLead, sendLeadToSheet, LeadFormData, SavedLead } from '../utils/validation';
+import { GOOGLE_SHEET_URL } from '../config';
 import { PRODUCTS, BRAND_INFO } from '../data/products';
 
 interface LeadFormProps {
@@ -85,12 +86,16 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     setIsSubmitting(true);
     setErrors({});
 
-    // Process submission: Save to local storage for persistence
-    setTimeout(() => {
-      const saved = saveLead(formData);
-      setSubmittedLead(saved);
-      setIsSubmitting(false);
-    }, 600);
+    // Lưu tạm trên trình duyệt + gửi về Google Sheet
+    const saved = saveLead(formData);
+    sendLeadToSheet(GOOGLE_SHEET_URL, saved)
+      .catch(() => {
+        // Lỗi mạng: vẫn hiện xác nhận, khách có thể liên hệ qua Zalo/hotline
+      })
+      .finally(() => {
+        setSubmittedLead(saved);
+        setIsSubmitting(false);
+      });
   };
 
   const handleDownloadReceipt = () => {
