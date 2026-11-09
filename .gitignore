@@ -6,8 +6,12 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# AI Studio & artifacts
 .aistudio/
 
+# Archives
+*.zip
 
-.vercel
-.env*
+# Deployments
+.vercel/

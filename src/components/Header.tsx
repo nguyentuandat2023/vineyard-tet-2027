@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, ArrowRight } from 'lucide-react';
 import { BRAND_INFO } from '../data/products';
+import { trackPhoneClick, trackCtaClick } from '../utils/analytics';
 
 interface HeaderProps {
   onOpenQuote: (productName?: string) => void;
@@ -29,6 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
 
   const handleNavClick = (href: string) => {
     setMobileMenuOpen(false);
+    trackCtaClick(`Nav: ${href}`, 'Header Navigation');
     const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
@@ -48,6 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
           <div className="flex items-center gap-6">
             <a
               href={`tel:${BRAND_INFO.hotlineRaw}`}
+              onClick={() => trackPhoneClick(BRAND_INFO.hotlineRaw, 'Top Micro-Bar')}
               className="flex items-center gap-1.5 hover:text-white transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-[#C49B43]" />
@@ -107,7 +110,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenQuote }) => {
           {/* Right Action */}
           <div className="flex items-center gap-3 shrink-0">
             <button
-              onClick={() => onOpenQuote()}
+              onClick={() => {
+                trackCtaClick('Nhận Báo Giá', 'Header Top Right');
+                onOpenQuote();
+              }}
               className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs uppercase tracking-wider font-semibold text-white bg-[#B52C32] hover:bg-[#8e1d23] shadow-sm hover:shadow transition-all duration-200 active:scale-95"
             >
               <span>Nhận Báo Giá</span>

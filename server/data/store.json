@@ -1,0 +1,727 @@
+{
+  "users": [
+    {
+      "id": "usr_super_admin_01",
+      "name": "Nguyễn Tuấn Đạt",
+      "email": "nguyentuandat.tuandat@gmail.com",
+      "role": "SUPER_ADMIN",
+      "status": "active",
+      "salt": "91c18dc545027c6c83eddebcac013fb4",
+      "passwordHash": "09aac29fcabc7de5f723d1b66c23384d4bcb67094187661031252d51c4ce23d83d9544c7a56d1b8ed574b95febebbed2c3f97fb1d49dae0d650707fc9ad006fc",
+      "createdAt": "2026-11-09T08:28:24.144Z",
+      "mustChangePassword": false,
+      "lastLogin": "2026-11-09T08:53:24.627Z"
+    },
+    {
+      "id": "usr_manager_02",
+      "name": "Lê Hoàng Yến (Quản lý Kinh doanh B2B)",
+      "email": "sales.lead@vineyard.vn",
+      "role": "ADMIN",
+      "status": "active",
+      "salt": "b0b9566e99b673d57c021de75b328756",
+      "passwordHash": "f6becd7a6f3a0861bb27282429290b60b27ae6b7ccfb95b51fde0467321ce3257df2c84cc405404735c2e05d0f02e8af5d42fba9d25bd3ac1413fb51ce8e6780",
+      "createdAt": "2026-11-09T08:28:24.221Z",
+      "mustChangePassword": false
+    }
+  ],
+  "customers": [
+    {
+      "id": "LEAD-7368",
+      "fullName": "Trần Quốc Bảo",
+      "companyName": "Công Ty Vận Tải Quốc Tế",
+      "phone": "0988776655",
+      "email": "",
+      "interestedProduct": "HAMPER MARQUIS XO",
+      "quantityRange": "100–499 hộp",
+      "purpose": [
+        "Quà tặng đối tác"
+      ],
+      "notes": "",
+      "status": "MỚI",
+      "source": "Website Trực Tiếp",
+      "internalNotes": [
+        {
+          "id": "note-1794214357368",
+          "author": "Hệ thống Vineyard",
+          "content": "Khách hàng gửi yêu cầu báo giá từ Landing Page lúc 08:52:37 9/11/2026.",
+          "createdAt": "2026-11-09T08:52:37.369Z"
+        }
+      ],
+      "createdAt": "2026-11-09T08:52:37.369Z",
+      "updatedAt": "2026-11-09T08:52:37.369Z"
+    },
+    {
+      "id": "LEAD-2036",
+      "fullName": "Nguyễn Tuấn Đạt",
+      "companyName": "Tập Đoàn Hoa Sen Đông Á",
+      "phone": "0911002233",
+      "email": "dat.nguyen@hoasendonga.vn",
+      "interestedProduct": "HAMPER GOLDEN PROSPERITY",
+      "quantityRange": "100–499 hộp",
+      "purpose": [
+        "Quà tặng đối tác"
+      ],
+      "notes": "Cần in logo ép kim vàng trên 150 hộp giao trước ngày 20 tháng Chạp",
+      "status": "MỚI",
+      "source": "Campaign (direct)",
+      "utmSource": "direct",
+      "utmMedium": "none",
+      "internalNotes": [
+        {
+          "id": "note-1794214262036",
+          "author": "Hệ thống Vineyard",
+          "content": "Khách hàng gửi yêu cầu báo giá từ Landing Page lúc 08:51:02 9/11/2026.",
+          "createdAt": "2026-11-09T08:51:02.060Z"
+        }
+      ],
+      "createdAt": "2026-11-09T08:51:02.060Z",
+      "updatedAt": "2026-11-09T08:51:02.060Z"
+    },
+    {
+      "id": "LEAD-8581",
+      "fullName": "Đặng Quốc Huy",
+      "companyName": "Vinamilk Vietnam",
+      "phone": "0908123456",
+      "email": "huy.dq@vinamilk.com.vn",
+      "interestedProduct": "HAMPER GOLDEN PROSPERITY",
+      "quantityRange": "500+ hộp",
+      "purpose": [
+        "Quà Tết Ban Giám Đốc"
+      ],
+      "notes": "",
+      "status": "MỚI",
+      "source": "Website Trực Tiếp",
+      "internalNotes": [
+        {
+          "id": "note-1794212938581",
+          "author": "Hệ thống Vineyard",
+          "content": "Khách hàng gửi yêu cầu báo giá từ Landing Page lúc 08:28:58 9/11/2026.",
+          "createdAt": "2026-11-09T08:28:58.670Z"
+        }
+      ],
+      "createdAt": "2026-11-09T08:28:58.670Z",
+      "updatedAt": "2026-11-09T08:28:58.670Z"
+    },
+    {
+      "id": "LEAD-2701",
+      "fullName": "Trần Văn Minh",
+      "companyName": "Công ty Cổ phần Bất Động Sản Hưng Thịnh Land",
+      "phone": "0903124567",
+      "email": "minh.tv@hungthinhland.com.vn",
+      "interestedProduct": "HAMPER GOLDEN PROSPERITY",
+      "quantityRange": "500+ hộp",
+      "purpose": [
+        "Quà tặng đối tác chiến lược",
+        "In logo doanh nghiệp ép kim"
+      ],
+      "notes": "Cần gửi mẫu thử thực tế trước ngày 15/12. Yêu cầu ép kim logo màu vàng ánh kim chuẩn màu nhận diện.",
+      "status": "ĐÃ BÁO GIÁ",
+      "assignedTo": "Nguyễn Tuấn Đạt",
+      "source": "Google Ads (Search)",
+      "utmSource": "google",
+      "utmMedium": "cpc",
+      "utmCampaign": "tet-2027-corporate-gifts",
+      "estimatedBudget": 650000000,
+      "internalNotes": [
+        {
+          "id": "note-1",
+          "author": "Nguyễn Tuấn Đạt",
+          "content": "Đã gọi điện trao đổi với anh Minh. Khách hàng quan tâm mức chiết khấu cho 600 hộp Golden Prosperity.",
+          "createdAt": "2026-11-07T08:28:24.221Z"
+        },
+        {
+          "id": "note-2",
+          "author": "Nguyễn Tuấn Đạt",
+          "content": "Đã gửi bảng báo giá chiết khấu 18% qua email và gửi mẫu demo qua văn phòng Quận 1.",
+          "createdAt": "2026-11-08T08:28:24.221Z"
+        }
+      ],
+      "createdAt": "2026-11-06T08:28:24.221Z",
+      "updatedAt": "2026-11-08T08:28:24.221Z"
+    },
+    {
+      "id": "LEAD-2702",
+      "fullName": "Nguyễn Thị Bích Phương",
+      "companyName": "Ngân Hàng TMCP Ngoại Thương Việt Nam (Vietcombank - CN Tân Bình)",
+      "phone": "0988654321",
+      "email": "phuongntb@vietcombank.com.vn",
+      "interestedProduct": "HAMPER MARQUIS XO",
+      "quantityRange": "100–499 hộp",
+      "purpose": [
+        "Quà tặng đối tác VIP",
+        "Thiệp chúc Tết lãnh đạo"
+      ],
+      "notes": "Cần xuất hóa đơn VAT điện tử đúng tên công đoàn. Giao hàng chia làm 2 đợt trước 20 tháng Chạp.",
+      "status": "ĐANG THƯƠNG THẢO",
+      "assignedTo": "Lê Hoàng Yến",
+      "source": "Zalo B2B",
+      "utmSource": "zalo",
+      "utmMedium": "direct_msg",
+      "utmCampaign": "vip-banking-q4",
+      "estimatedBudget": 320000000,
+      "internalNotes": [
+        {
+          "id": "note-3",
+          "author": "Lê Hoàng Yến",
+          "content": "Khách hàng duyệt thiết kế thiệp và hộp Marquis XO. Đang rà soát điều khoản thanh toán hợp đồng B2B.",
+          "createdAt": "2026-11-09T02:28:24.221Z"
+        }
+      ],
+      "createdAt": "2026-11-08T08:28:24.221Z",
+      "updatedAt": "2026-11-09T02:28:24.221Z"
+    },
+    {
+      "id": "LEAD-2703",
+      "fullName": "Phạm Đức Trí",
+      "companyName": "Tập đoàn Công nghệ FPT Software",
+      "phone": "0912889900",
+      "email": "tri.pd@fpt.com",
+      "interestedProduct": "HAMPER LABEL 5 GREEN",
+      "quantityRange": "500+ hộp",
+      "purpose": [
+        "Quà tặng nhân viên xuất sắc",
+        "Quà tặng đối tác công nghệ"
+      ],
+      "notes": "Thích thiết kế trẻ trung xanh lục bảo của dòng Citrus. Cần báo giá 800 suất.",
+      "status": "MỚI",
+      "assignedTo": "Chưa phân công",
+      "source": "Facebook Ads",
+      "utmSource": "facebook",
+      "utmMedium": "feed_video",
+      "utmCampaign": "label5-green-modern",
+      "estimatedBudget": 850000000,
+      "internalNotes": [],
+      "createdAt": "2026-11-09T06:28:24.221Z",
+      "updatedAt": "2026-11-09T06:28:24.221Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "hamper-golden-prosperity",
+      "name": "HAMPER GOLDEN PROSPERITY",
+      "subTitle": "Hộp Quà Hạc An Khang – Vàng Son Thịnh Vượng",
+      "theme": "Hoàng Kim & Phong Thủy",
+      "badge": "Mẫu Hoàng Gia Vàng Son",
+      "image": "/assets/aistudio/1_81b8582e.png",
+      "bannerImage": "/assets/aistudio/H_p_Qu__T_t_H_c_An_Khang_V_ng_Son_2e65bb4c.png",
+      "description": "Hộp quà Vineyard màu vàng kim dập nổi 3D tinh xảo, khắc họa biểu tượng chim hạc an khang sải cánh, hoa đào nghinh xuân và thuyền buồm thuận buồm xuôi gió trên sóng biếc.",
+      "highlights": [
+        "Biểu tượng Chim Hạc An Khang & Trường Thọ",
+        "Họa tiết Thuyền Buồm Thuận Buồm Xuôi Gió",
+        "Công nghệ dập nổi 3D ép kim ánh vàng hoàng gia",
+        "Khắc họa sắc nét logo vương miện Vineyard"
+      ],
+      "components": [
+        "Rượu vang hảo hạng tuyển chọn độc quyền từ Vineyard",
+        "Bộ phụ kiện khui rượu vang chuyên nghiệp",
+        "Hộp cứng cao cấp tráng kim dập nổi đa tầng",
+        "Túi xách cao cấp đồng bộ cùng tông màu"
+      ],
+      "packagingDetails": [
+        "Kích thước hộp đứng sang trọng, chắc chắn",
+        "Khóa nam châm và bản lề gia công tỉ mỉ",
+        "Bề mặt phủ kim dập nổi hoa văn mây lành cát tường",
+        "Có sẵn vị trí tùy biến ép kim logo doanh nghiệp"
+      ],
+      "recommendedFor": "Tặng đối tác chiến lược, hội đồng quản trị, khách hàng VIP",
+      "priceEstimate": "Từ 1.250.000 VNĐ",
+      "inStock": true,
+      "featured": true,
+      "sortOrder": 1,
+      "complianceWarning": "Sản phẩm có chứa nồng độ cồn. Không bán cho người dưới 18 tuổi. Sử dụng có trách nhiệm."
+    },
+    {
+      "id": "hamper-oriental-celebration",
+      "name": "HAMPER ORIENTAL CELEBRATION",
+      "subTitle": "Hộp Quà Hoa Khai Phú – Sắc Đỏ Phú Quý",
+      "theme": "Truyền Thống & Hiện Đại",
+      "badge": "Được Yêu Thích Nhất",
+      "image": "/assets/aistudio/4_ae98fb1a.png",
+      "bannerImage": "/assets/aistudio/H_p_Qu__T_t_Hoa_Khai_Ph__Sang_Tr_ng_a04f6789.png",
+      "description": "Hộp quà Vineyard sắc đỏ lễ hội với quai xách bọc da sang trọng, họa tiết hoa mẫu đơn phú quý, chim én thanh tao cùng cửa sổ mở hé lộ trọn vẹn bộ quà tặng cao cấp bên trong.",
+      "highlights": [
+        "Quai xách da thời thượng, thuận tiện mang trao tặng",
+        "Họa tiết Hoa Mẫu Đơn & Chim Én Báo Xuân ngập tràn sắc Tết",
+        "Thiết kế cửa sổ mở trưng bày trực quan sản phẩm",
+        "Bộ quà đa dạng kết hợp rượu vang và hạt bánh hảo hạng"
+      ],
+      "components": [
+        "Vang Ý cao cấp R7 Gold Primitivo (Top 100 danh giá)",
+        "Chocolate Assortment cao cấp hương vị nguyên bản",
+        "Hạt dẻ nướng Roasted Chestnuts thơm bùi tự nhiên",
+        "Bánh quy bơ giòn Butter Cookies nhập khẩu chọn lọc",
+        "Hộp quà có quai xách thiết kế đồng bộ ấn tượng"
+      ],
+      "packagingDetails": [
+        "Chất liệu hộp cứng dày dặn định lượng cao",
+        "Quai cầm tán đinh kim loại ánh vàng sang trọng",
+        "Khay định hình bọc nhung nâng đỡ từng sản phẩm",
+        "Bề mặt in phủ UV định hình sắc nét từng cánh hoa"
+      ],
+      "recommendedFor": "Tặng khách hàng thân thiết, đối tác kinh doanh, ban điều hành",
+      "priceEstimate": "Từ 1.550.000 VNĐ",
+      "inStock": true,
+      "featured": true,
+      "sortOrder": 2,
+      "complianceWarning": "Sản phẩm có chứa nồng độ cồn. Không bán cho người dưới 18 tuổi. Sử dụng có trách nhiệm."
+    },
+    {
+      "id": "hamper-marquis-xo",
+      "name": "HAMPER MARQUIS XO",
+      "subTitle": "Hộp Quà Marquis III XO French Brandy – Phong Thái Quý Tộc",
+      "theme": "Đẳng Cấp Châu Âu",
+      "badge": "Bộ Sưu Tập Giới Hạn",
+      "image": "/assets/aistudio/3_aed9879a.png",
+      "bannerImage": "/assets/aistudio/Hamper_T_t_Ho_ng_Gia_Vineyard.vn_3171d4b5.png",
+      "description": "Tuyệt tác hộp quà phong cách Hoàng Gia Châu Âu với tông màu champagne quý phái và đỏ burgundy vương giả, họa tiết kỵ sĩ cưỡi chiến mã dũng mãnh và vương miện mặt trời dập nổi sắc sảo.",
+      "highlights": [
+        "Họa tiết Kỵ Sĩ Hoàng Gia & Mặt Trời Huy Hoàng",
+        "Tông màu Champagne & Đỏ Burgundy vương giả",
+        "Biểu trưng cho bản lĩnh kiên cường và thắng lợi kinh doanh",
+        "Dòng Brandy Pháp XO thượng hạng khẳng định vị thế"
+      ],
+      "components": [
+        "Rượu Marquis III French Brandy XO hảo hạng từ Pháp (5 sao)",
+        "Bộ ly pha lê thưởng rượu cao cấp (tùy chọn set)",
+        "Hộp quà phong cách cánh cửa đôi độc đáo",
+        "Túi quà Hoàng Gia thiết kế riêng"
+      ],
+      "packagingDetails": [
+        "Hộp đóng mở nam châm cao cấp với độ khít hoàn hảo",
+        "Lót lụa nhung đỏ tôn vinh sắc vàng ánh kim của chai rượu",
+        "Họa tiết dập nổi 3D chạm trổ hoa văn Baroque cầu kỳ",
+        "Tem niêm phong bảo an chính hãng"
+      ],
+      "recommendedFor": "Tặng lãnh đạo cấp cao, đối tác ngoại giao, khách hàng đặc biệt",
+      "priceEstimate": "Từ 2.450.000 VNĐ",
+      "inStock": true,
+      "featured": true,
+      "sortOrder": 3,
+      "complianceWarning": "Sản phẩm có chứa nồng độ cồn. Không bán cho người dưới 18 tuổi. Sử dụng có trách nhiệm."
+    },
+    {
+      "id": "hamper-label-5-red",
+      "name": "HAMPER LABEL 5 RED",
+      "subTitle": "Hộp Quà Scotch Whisky Label 5 Sắc Đỏ – Cá Chép Hóa Rồng",
+      "theme": "Cát Tường & Tài Lộc",
+      "badge": "Bestseller Doanh Nghiệp",
+      "image": "/assets/aistudio/2_78bd844e.png",
+      "bannerImage": "/assets/aistudio/Hamper_T_t_Label_5____Sang_Tr_ng_cada9040.png",
+      "description": "Hộp quà Label 5 sắc đỏ cát tường với họa tiết song ngư cá chép vượt vũ môn ép kim 3D sống động, số 5 vàng son cách điệu lộng lẫy cùng sự kết hợp trọn vẹn của Scotch Whisky và đồ ngọt thượng hạng.",
+      "highlights": [
+        "Họa tiết Song Ngư Quần Tụ mang ý nghĩa thăng tiến",
+        "Số 5 may mắn biểu trưng Ngũ Phúc Lâm Môn",
+        "Hộp quà mở đôi kèm set hạt, chocolate và bánh hảo hạng",
+        "Quai xách tiện dụng phủ nhũ vàng sang trọng"
+      ],
+      "components": [
+        "Chai Blended Scotch Whisky Label 5 Classic Black Matured in Oak Casks",
+        "Hộp Chocolate Assortment cao cấp",
+        "Hộp Hạt Dẻ Nướng Roasted Chestnuts chọn lọc",
+        "Hộp Bánh Quy Bơ Butter Cookies truyền thống",
+        "Hộp quà có quai xách vàng son tích hợp sang trọng"
+      ],
+      "packagingDetails": [
+        "Thiết kế dạng hộp mở kèm khay giữ chắc chắn từng hộp con",
+        "Mặt trong in logo thương hiệu ép kim sắc nét",
+        "Lót nhung đỏ bảo vệ sản phẩm khi vận chuyển xa",
+        "Quai xách tán đinh gia cố chịu lực tốt"
+      ],
+      "recommendedFor": "Quà tặng cán bộ nhân viên xuất sắc, khách hàng doanh nghiệp thân thiết",
+      "priceEstimate": "Từ 950.000 VNĐ",
+      "inStock": true,
+      "featured": false,
+      "sortOrder": 4,
+      "complianceWarning": "Sản phẩm có chứa nồng độ cồn. Không bán cho người dưới 18 tuổi. Sử dụng có trách nhiệm."
+    },
+    {
+      "id": "hamper-label-5-green",
+      "name": "HAMPER LABEL 5 GREEN",
+      "subTitle": "Hộp Quà Scotch Whisky Label 5 Xanh – Khởi Sắc Tươi Mới",
+      "theme": "Thanh Mát & Đột Phá",
+      "badge": "Hương Vị Độc Đáo",
+      "image": "/assets/aistudio/5_e07411b8.png",
+      "bannerImage": "/assets/aistudio/Hamper_Label_5_Xanh_Sang_Tr_ng_16291da7.png",
+      "description": "Phiên bản xanh lục bảo mang năng lượng đổi mới và phát triển bền vững, họa tiết song ngư vờn hoa quả cam chanh Citrus dập nổi tinh xảo, kết hợp dòng rượu Whisky hương vị thảo mộc tươi mát.",
+      "highlights": [
+        "Tông màu Xanh Lục Bảo phong thủy Mộc sinh Hỏa cát tường",
+        "Hương vị Citrus thanh mát tự nhiên từ Chanh, Cam Bergamot",
+        "Họa tiết Song Ngư may mắn mạ vàng kim ấn tượng",
+        "Sự lựa chọn hiện đại cho các doanh nghiệp trẻ, năng động"
+      ],
+      "components": [
+        "Label 5 Original Citrus Spirit Drink (Scotch Whisky thảo mộc tự nhiên)",
+        "Hộp cứng cao cấp dập nổi ánh kim xanh lục bảo",
+        "Bộ ly uống cocktail / on-the-rocks đi kèm (theo cấu hình đơn hàng)",
+        "Túi xách cao cấp đồng bộ"
+      ],
+      "packagingDetails": [
+        "Họa tiết dập nổi 3D đa tầng trên nền xanh nhung",
+        "Gia công mép gập không nếp gấp sắc sảo",
+        "Chất liệu thân thiện với môi trường, bền đẹp dài lâu",
+        "Bề mặt chống bám vân tay cao cấp"
+      ],
+      "recommendedFor": "Doanh nghiệp công nghệ, dịch vụ sáng tạo, đối tác trẻ năng động",
+      "priceEstimate": "Từ 1.050.000 VNĐ",
+      "inStock": true,
+      "featured": false,
+      "sortOrder": 5,
+      "complianceWarning": "Sản phẩm có chứa nồng độ cồn. Không bán cho người dưới 18 tuổi. Sử dụng có trách nhiệm."
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-2027-001",
+      "leadId": "LEAD-2701",
+      "companyName": "Công ty Cổ phần Đầu tư Bất Động Sản Sunrise",
+      "taxCode": "0315892341",
+      "contactPerson": "Vũ Quốc Cường",
+      "phone": "0938112233",
+      "email": "cuong.vq@sunrisegroup.vn",
+      "shippingAddress": "Tòa nhà Sunrise Tower, 258 Bến Vân Đồn, P.2, Q.4, TP.HCM",
+      "productName": "HAMPER ORIENTAL CELEBRATION",
+      "quantity": 250,
+      "unitPrice": 1550000,
+      "totalValue": 387500000,
+      "depositAmount": 193750000,
+      "paymentStatus": "ĐÃ CỌC 50%",
+      "deliveryStatus": "ĐANG GIA CÔNG",
+      "deliveryDate": "2027-01-20",
+      "notes": "Đã hoàn thiện market ép kim nhũ vàng logo Sunrise. Đang tiến hành đóng gói đợt 1.",
+      "createdAt": "2026-11-04T08:28:24.221Z",
+      "updatedAt": "2026-11-08T08:28:24.221Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "camp-01",
+      "name": "Google Search Tết Doanh Nghiệp 2027",
+      "channel": "Google Ads",
+      "utmSource": "google",
+      "utmMedium": "cpc",
+      "utmCampaign": "tet-2027-corporate-gifts",
+      "budget": 35000000,
+      "impressions": 48500,
+      "clicks": 3420,
+      "status": "Đang chạy",
+      "startDate": "2026-10-15",
+      "endDate": "2027-01-25",
+      "createdAt": "2026-10-20T08:28:24.221Z"
+    },
+    {
+      "id": "camp-02",
+      "name": "Facebook Video Quà Tết C-Suite VIP",
+      "channel": "Facebook Ads",
+      "utmSource": "facebook",
+      "utmMedium": "feed_video",
+      "utmCampaign": "label5-green-modern",
+      "budget": 25000000,
+      "impressions": 112000,
+      "clicks": 4180,
+      "status": "Đang chạy",
+      "startDate": "2026-11-01",
+      "endDate": "2027-01-20",
+      "createdAt": "2026-10-30T08:28:24.221Z"
+    },
+    {
+      "id": "camp-03",
+      "name": "Zalo B2B Direct Outreach cho Ngân Hàng",
+      "channel": "Zalo B2B",
+      "utmSource": "zalo",
+      "utmMedium": "direct_msg",
+      "utmCampaign": "vip-banking-q4",
+      "budget": 15000000,
+      "impressions": 12400,
+      "clicks": 1950,
+      "status": "Đang chạy",
+      "startDate": "2026-11-05",
+      "endDate": "2027-01-22",
+      "createdAt": "2026-11-04T08:28:24.221Z"
+    }
+  ],
+  "content": {
+    "brand": {
+      "name": "VINEYARD.VN",
+      "slogan": "THE KING OF WINES",
+      "parentCompany": "BINH MINH GROUP – FOODS & DRINKS",
+      "website": "https://vineyard.vn/",
+      "hotline": "091 100 22 33",
+      "hotlineRaw": "0911002233",
+      "zalo": "091 100 22 33",
+      "zaloLink": "https://zalo.me/0911002233",
+      "email": "baogia@vineyard.vn",
+      "address": "10 Truong Dinh Hoi Str., Ward 16, District 8, Ho Chi Minh City, Vietnam.",
+      "logoVineyard": "/assets/aistudio/2_logo_nhieu_mau-01_453faceb.jpg",
+      "logoBinhMinh": "/assets/aistudio/378322_cd712a19.png"
+    },
+    "hero": {
+      "badge": "BỘ SƯU TẬP QUÀ TẾT DOANH NGHIỆP 2027",
+      "headline": "Tinh Hoa Quà Tết Đẳng Cấp – Gắn Kết Thịnh Vượng",
+      "subHeadline": "BỘ SƯU TẬP QUÀ TẾT HAMPER CAO CẤP DÀNH CHO KHÁCH HÀNG DOANH NGHIỆP",
+      "description": "Vineyard.vn mang đến giải pháp quà Tết cao cấp với các bộ Hamper sang trọng, kết hợp hài hòa giữa dòng rượu vang hảo hạng, rượu mạnh thượng đỉnh cùng họa tiết hoàng gia tinh xảo.",
+      "highlights": [
+        "Thiết kế bao bì ép kim sang trọng bậc nhất",
+        "Cá nhân hóa in logo doanh nghiệp theo yêu cầu",
+        "Chính sách chiết khấu bậc thang hấp dẫn từ 50+ hộp",
+        "Vận chuyển chống sốc chuyên nghiệp toàn quốc"
+      ]
+    },
+    "pillars": [
+      {
+        "id": "pillar-1",
+        "step": "01",
+        "title": "Quà Tặng Đối Tác & Khách Hàng",
+        "description": "Tuyển chọn những dòng rượu vang và rượu mạnh nhập khẩu chính ngạch danh tiếng, khẳng định vị thế và sự tôn vinh trọn vẹn dành cho người nhận.",
+        "icon": "Crown"
+      },
+      {
+        "id": "pillar-2",
+        "step": "02",
+        "title": "Cá Nhân Hóa & In Logo Doanh Nghiệp",
+        "description": "Hỗ trợ thiết kế và ép kim logo, in thiệp chúc mừng riêng mang nhận diện thương hiệu doanh nghiệp trên từng hộp quà.",
+        "icon": "Sparkles"
+      },
+      {
+        "id": "pillar-3",
+        "step": "03",
+        "title": "Đáp Ứng Đơn Hàng Số Lượng Lớn",
+        "description": "Năng lực cung ứng linh hoạt từ 50 đến hơn 1.000 hộp quà với chất lượng đồng nhất, kiểm định nghiêm ngặt trước khi xuất xưởng.",
+        "icon": "Boxes"
+      },
+      {
+        "id": "pillar-4",
+        "step": "04",
+        "title": "Giao Hàng An Toàn Toàn Quốc",
+        "description": "Quy trình đóng gói chống sốc tiêu chuẩn, giao tận nơi theo danh sách phân bổ của doanh nghiệp đúng tiến độ cam kết.",
+        "icon": "Truck"
+      }
+    ],
+    "bulkTiers": [
+      {
+        "tier": "50+ HỘP",
+        "sub": "Quy mô Khởi điểm",
+        "target": "Doanh nghiệp vừa và nhỏ, phòng ban, tri ân đối tác nòng cốt",
+        "benefits": [
+          "Tư vấn phối trộn sản phẩm theo ngân sách",
+          "Tặng kèm thiệp chúc mừng thiết kế tiêu chuẩn",
+          "Hỗ trợ đóng gói an toàn và giao hàng tập trung"
+        ]
+      },
+      {
+        "tier": "100+ HỘP",
+        "sub": "Quy mô Phổ biến",
+        "target": "Doanh nghiệp tri ân mạng lưới khách hàng và đại lý",
+        "benefits": [
+          "Chính sách chiết khấu bậc thang theo số lượng",
+          "Hỗ trợ in ấn thiệp chúc mừng mang dấu ấn công ty",
+          "Ưu tiên phân bổ tiến độ giao hàng trước Tết"
+        ]
+      },
+      {
+        "tier": "500+ HỘP",
+        "sub": "Quy mô Doanh nghiệp lớn",
+        "target": "Tập đoàn, ngân hàng, công ty bất động sản, chuỗi bán lẻ",
+        "benefits": [
+          "Chính sách giá đặc quyền doanh nghiệp",
+          "Cá nhân hóa ép kim logo doanh nghiệp lên hộp quà",
+          "Hỗ trợ phân chia và giao hàng theo danh sách đa điểm"
+        ]
+      },
+      {
+        "tier": "1.000+ HỘP",
+        "sub": "Quy mô Đại dự án",
+        "target": "Tổng công ty, tập đoàn đa quốc gia, chương trình quà tặng trọng điểm",
+        "benefits": [
+          "Tư vấn thiết kế bao bì và bộ nhận diện độc quyền",
+          "Chuyên viên dự án phục vụ 24/7 theo dõi từ A-Z",
+          "Kế hoạch lưu kho và giao hàng linh hoạt theo nhiều đợt"
+        ]
+      }
+    ],
+    "faqList": [
+      {
+        "q": "Vineyard.vn có nhận đơn hàng quà Tết số lượng lớn không?",
+        "a": "Có. Chúng tôi chuyên cung ứng các đơn hàng quà Tết doanh nghiệp quy mô từ 50 hộp đến trên 1.000 hộp, đảm bảo năng lực cung ứng kịp thời, chất lượng đồng đều và hóa đơn chứng từ đầy đủ."
+      },
+      {
+        "q": "Doanh nghiệp có thể in logo lên hộp quà không?",
+        "a": "Có. Vineyard.vn cung cấp dịch vụ cá nhân hóa như ép kim logo doanh nghiệp lên vỏ hộp, nơ ruy băng hoặc in thiệp chúc Tết đính kèm theo yêu cầu của từng doanh nghiệp."
+      },
+      {
+        "q": "Có chính sách chiết khấu khi đặt nhiều hộp quà không?",
+        "a": "Có. Chúng tôi áp dụng chính sách chiết khấu thương mại bậc thang hấp dẫn dành riêng cho khách hàng doanh nghiệp đặt hàng số lượng lớn. Quý khách vui lòng gửi yêu cầu để nhận bảng chiết khấu chi tiết theo từng mức sản lượng."
+      },
+      {
+        "q": "Vineyard.vn có giao hàng toàn quốc không?",
+        "a": "Có. Chúng tôi hỗ trợ vận chuyển an toàn trên toàn quốc, có quy cách đóng thùng bảo vệ chuyên dụng chống va đập và hỗ trợ phân bổ giao đến các chi nhánh của doanh nghiệp."
+      },
+      {
+        "q": "Làm thế nào để nhận báo giá nhanh nhất?",
+        "a": "Quý doanh nghiệp có thể gửi biểu mẫu đăng ký nhận báo giá tại chân trang web này, gọi trực tiếp Hotline 091 100 22 33 hoặc kết nối Zalo 091 100 22 33 để được tư vấn viên hỗ trợ trong thời gian sớm nhất."
+      },
+      {
+        "q": "Doanh nghiệp có thể yêu cầu thiết kế quà tặng riêng không?",
+        "a": "Có. Với các đơn hàng lớn hoặc nhu cầu đặc thù, đội ngũ Vineyard.vn sẵn sàng tư vấn tùy chỉnh thành phần rượu, bánh kẹo, hoa văn bao bì để phù hợp hoàn hảo với ngân sách và nhận diện của doanh nghiệp."
+      }
+    ],
+    "updatedAt": "2026-11-09T08:28:24.221Z"
+  },
+  "settings": {
+    "companyName": "BINH MINH GROUP – FOODS & DRINKS (VINEYARD.VN)",
+    "taxCode": "0314892011",
+    "hotline": "091 100 22 33",
+    "zalo": "091 100 22 33",
+    "email": "baogia@vineyard.vn",
+    "address": "10 Trường Đình Hợi, Phường 16, Quận 8, TP. Hồ Chí Minh, Việt Nam.",
+    "gtmId": "GTM-VYND2027",
+    "ga4Id": "G-VYNDTET2027",
+    "metaPixelId": "109283746501928",
+    "sessionTimeoutMinutes": 120,
+    "maxFailedLogins": 5,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "complianceText": "Tuân thủ Nghị định 24/2020/NĐ-CP: Thông tin chỉ mang tính chất giới thiệu quà biếu tặng đối tác doanh nghiệp, không nhằm mục đích quảng cáo hoặc bán lẻ trực tuyến rượu cho người chưa đủ 18 tuổi."
+  },
+  "activityLogs": [
+    {
+      "id": "log-1794214404627",
+      "adminEmail": "nguyentuandat.tuandat@gmail.com",
+      "adminName": "Nguyễn Tuấn Đạt",
+      "action": "ĐĂNG NHẬP THÀNH CÔNG",
+      "module": "AUTH",
+      "details": "Đăng nhập hệ thống từ IP ::1",
+      "ipAddress": "::1",
+      "createdAt": "2026-11-09T08:53:24.627Z"
+    },
+    {
+      "id": "log-1794212959244",
+      "adminEmail": "nguyentuandat.tuandat@gmail.com",
+      "adminName": "Nguyễn Tuấn Đạt",
+      "action": "ĐĂNG NHẬP THÀNH CÔNG",
+      "module": "AUTH",
+      "details": "Đăng nhập hệ thống từ IP ::ffff:127.0.0.1",
+      "ipAddress": "::ffff:127.0.0.1",
+      "createdAt": "2026-11-09T08:29:19.244Z"
+    },
+    {
+      "id": "log-1794212924547",
+      "adminEmail": "nguyentuandat.tuandat@gmail.com",
+      "adminName": "Nguyễn Tuấn Đạt",
+      "action": "ĐĂNG NHẬP THÀNH CÔNG",
+      "module": "AUTH",
+      "details": "Đăng nhập hệ thống từ IP ::ffff:127.0.0.1",
+      "ipAddress": "::ffff:127.0.0.1",
+      "createdAt": "2026-11-09T08:28:44.547Z"
+    },
+    {
+      "id": "log-01",
+      "adminEmail": "nguyentuandat.tuandat@gmail.com",
+      "adminName": "Nguyễn Tuấn Đạt",
+      "action": "KHỞI TẠO HỆ THỐNG",
+      "module": "SYSTEM",
+      "details": "Khởi tạo cấu trúc cơ sở dữ liệu và cấu hình Super Admin.",
+      "ipAddress": "127.0.0.1",
+      "createdAt": "2026-11-06T08:28:24.221Z"
+    },
+    {
+      "id": "log-02",
+      "adminEmail": "nguyentuandat.tuandat@gmail.com",
+      "adminName": "Nguyễn Tuấn Đạt",
+      "action": "CẬP NHẬT TRẠNG THÁI LEAD",
+      "module": "CRM",
+      "details": "Chuyển trạng thái Lead LEAD-2701 sang ĐÃ BÁO GIÁ.",
+      "ipAddress": "14.161.22.45",
+      "createdAt": "2026-11-08T08:28:24.221Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif-1794214357369",
+      "title": "Yêu cầu báo giá mới",
+      "message": "Trần Quốc Bảo (Công Ty Vận Tải Quốc Tế) yêu cầu báo giá cho HAMPER MARQUIS XO (100–499 hộp).",
+      "type": "lead",
+      "read": false,
+      "link": "/admin/customers",
+      "createdAt": "2026-11-09T08:52:37.369Z"
+    },
+    {
+      "id": "notif-1794214262061",
+      "title": "Yêu cầu báo giá mới",
+      "message": "Nguyễn Tuấn Đạt (Tập Đoàn Hoa Sen Đông Á) yêu cầu báo giá cho HAMPER GOLDEN PROSPERITY (100–499 hộp).",
+      "type": "lead",
+      "read": false,
+      "link": "/admin/customers",
+      "createdAt": "2026-11-09T08:51:02.061Z"
+    },
+    {
+      "id": "notif-1794212938671",
+      "title": "Yêu cầu báo giá mới",
+      "message": "Đặng Quốc Huy (Vinamilk Vietnam) yêu cầu báo giá cho HAMPER GOLDEN PROSPERITY (500+ hộp).",
+      "type": "lead",
+      "read": false,
+      "link": "/admin/customers",
+      "createdAt": "2026-11-09T08:28:58.671Z"
+    },
+    {
+      "id": "notif-01",
+      "title": "Yêu cầu báo giá mới",
+      "message": "Khách hàng Phạm Đức Trí (FPT Software) vừa gửi yêu cầu 500+ hộp Hamper Label 5 Green.",
+      "type": "lead",
+      "read": false,
+      "link": "/admin/customers",
+      "createdAt": "2026-11-09T06:28:24.221Z"
+    },
+    {
+      "id": "notif-02",
+      "title": "Đơn hàng mới đã xác nhận cọc",
+      "message": "Đơn hàng ORD-2027-001 (BĐS Sunrise) đã thanh toán 50% tiền cọc (193.750.000 VNĐ).",
+      "type": "order",
+      "read": true,
+      "link": "/admin/orders",
+      "createdAt": "2026-11-08T08:28:24.221Z"
+    }
+  ],
+  "analyticsEvents": [
+    {
+      "id": "evt-1794214262067-brxg",
+      "event": "generate_lead",
+      "data": {
+        "event": "generate_lead",
+        "lead_id": "LEAD-2036",
+        "product_name": "HAMPER GOLDEN PROSPERITY",
+        "quantity_range": "100–499 hộp",
+        "lead_type": "B2B_CORPORATE",
+        "purposes": "Quà tặng đối tác",
+        "utm_source": "direct",
+        "utm_medium": "none"
+      },
+      "createdAt": "2026-11-09T08:51:02.067Z"
+    },
+    {
+      "id": "evt-1794214253027-ecb6",
+      "event": "form_start",
+      "data": {
+        "event": "form_start",
+        "form_name": "B2B Lead Form Tết 2027"
+      },
+      "createdAt": "2026-11-09T08:50:53.027Z"
+    },
+    {
+      "id": "evt-1794213584052-p1dx",
+      "event": "view_item",
+      "data": {
+        "event": "view_item",
+        "ecommerce": {
+          "items": [
+            {
+              "item_id": "hamper-golden-prosperity",
+              "item_name": "HAMPER GOLDEN PROSPERITY",
+              "item_category": "Tết Hamper 2027",
+              "item_brand": "Vineyard.vn"
+            }
+          ]
+        }
+      },
+      "createdAt": "2026-11-09T08:39:44.052Z"
+    }
+  ]
+}

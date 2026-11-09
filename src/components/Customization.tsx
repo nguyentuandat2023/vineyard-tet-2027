@@ -11,7 +11,7 @@ export const Customization: React.FC<CustomizationProps> = ({ onOpenQuote }) => 
   const [greetingText, setGreetingText] = useState('Kính chúc Quý Khách Hàng & Đối Tác Năm Mới An Khang Thịnh Vượng');
 
   return (
-    <section id="customization" className="py-20 bg-[#F7F3EC] border-b border-[#E8D5A7]/40">
+    <section id="customization" className="py-20 bg-[#F7F3EC] border-b border-[#E8D5A7]/40 scroll-mt-24 lg:scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">

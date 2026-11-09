@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle2, AlertCircle, Phone, Building2, User, Mail, Gift, Layers, FileText, Download, RefreshCw } from 'lucide-react';
-import { validateLeadForm, saveLead, sendLeadToSheet, LeadFormData, SavedLead } from '../utils/validation';
-import { GOOGLE_SHEET_URL } from '../config';
+import { validateLeadForm, saveLead, LeadFormData, SavedLead } from '../utils/validation';
 import { PRODUCTS, BRAND_INFO } from '../data/products';
+import { trackFormStart, trackGenerateLead, getPersistedUtmParams, trackCtaClick } from '../utils/analytics';
 
 interface LeadFormProps {
   preselectedProduct?: string;
@@ -29,6 +29,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedLead, setSubmittedLead] = useState<SavedLead | null>(null);
+  const [hasStartedForm, setHasStartedForm] = useState(false);
 
   // Sync incoming preselected props
   useEffect(() => {
@@ -56,6 +57,10 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     field: keyof LeadFormData,
     value: string | string[]
   ) => {
+    if (!hasStartedForm) {
+      setHasStartedForm(true);
+      trackFormStart('B2B Lead Form Tết 2027');
+    }
     setFormData((prev) => ({ ...prev, [field]: value }));
     // Clear field error on edit
     if (errors[field]) {
@@ -68,13 +73,17 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   };
 
   const togglePurpose = (item: string) => {
+    if (!hasStartedForm) {
+      setHasStartedForm(true);
+      trackFormStart('B2B Lead Form Tết 2027');
+    }
     const current = formData.purpose || [];
     const exists = current.includes(item);
     const updated = exists ? current.filter((i) => i !== item) : [...current, item];
     handleChange('purpose', updated);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = validateLeadForm(formData);
 
@@ -86,16 +95,42 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     setIsSubmitting(true);
     setErrors({});
 
-    // Lưu tạm trên trình duyệt + gửi về Google Sheet
-    const saved = saveLead(formData);
-    sendLeadToSheet(GOOGLE_SHEET_URL, saved)
-      .catch(() => {
-        // Lỗi mạng: vẫn hiện xác nhận, khách có thể liên hệ qua Zalo/hotline
-      })
-      .finally(() => {
-        setSubmittedLead(saved);
-        setIsSubmitting(false);
+    const utm = getPersistedUtmParams();
+
+    try {
+      const res = await fetch('/api/public/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, utm })
       });
+      const data = await res.json();
+      if (data.success && data.lead) {
+        setSubmittedLead(data.lead);
+        saveLead(formData); // also save locally
+        trackGenerateLead({
+          leadId: data.lead.id,
+          productName: data.lead.interestedProduct,
+          quantityRange: data.lead.quantityRange,
+          purposes: data.lead.purpose
+        });
+        setIsSubmitting(false);
+        return;
+      }
+    } catch (err) {
+      console.warn('API submission failed, falling back to local storage:', err);
+    }
+
+    // Fallback if offline / server booting
+    const saved = saveLead(formData);
+    setSubmittedLead(saved);
+    setIsSubmitting(false);
+
+    trackGenerateLead({
+      leadId: saved.id,
+      productName: saved.interestedProduct,
+      quantityRange: saved.quantityRange,
+      purposes: saved.purpose
+    });
   };
 
   const handleDownloadReceipt = () => {
@@ -155,7 +190,7 @@ TRẠNG THÁI: Đã tiếp nhận - Chuyên viên B2B sẽ phản hồi báo gi�
   ];
 
   return (
-    <section id="quote-form" className="py-20 bg-white relative overflow-hidden">
+    <section id="quote-form" className="py-20 bg-white relative overflow-hidden scroll-mt-24 lg:scroll-mt-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -263,6 +298,8 @@ TRẠNG THÁI: Đã tiếp nhận - Chuyên viên B2B sẽ phản hồi báo gi�
                   <span>Họ và tên người liên hệ <strong className="text-red-600">*</strong></span>
                 </label>
                 <input
+                  id="leadFullName"
+                  name="fullName"
                   type="text"
                   value={formData.fullName}
                   onChange={(e) => handleChange('fullName', e.target.value)}
@@ -281,11 +318,13 @@ TRẠNG THÁI: Đã tiếp nhận - Chuyên viên B2B sẽ phản hồi báo gi�
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#282321] uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
+                <label htmlFor="leadCompanyName" className="block text-xs font-bold text-[#282321] uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
                   <Building2 className="w-3.5 h-3.5 text-[#B52C32]" />
                   <span>Tên doanh nghiệp / Đơn vị <strong className="text-red-600">*</strong></span>
                 </label>
                 <input
+                  id="leadCompanyName"
+                  name="companyName"
                   type="text"
                   value={formData.companyName}
                   onChange={(e) => handleChange('companyName', e.target.value)}
@@ -307,11 +346,13 @@ TRẠNG THÁI: Đã tiếp nhận - Chuyên viên B2B sẽ phản hồi báo gi�
             {/* Row 2: Phone & Email */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-bold text-[#282321] uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
+                <label htmlFor="leadPhone" className="block text-xs font-bold text-[#282321] uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
                   <Phone className="w-3.5 h-3.5 text-[#B52C32]" />
                   <span>Số điện thoại (Zalo nhận báo giá) <strong className="text-red-600">*</strong></span>
                 </label>
                 <input
+                  id="leadPhone"
+                  name="phone"
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => handleChange('phone', e.target.value)}
@@ -330,11 +371,13 @@ TRẠNG THÁI: Đã tiếp nhận - Chuyên viên B2B sẽ phản hồi báo gi�
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-[#282321] uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
+                <label htmlFor="leadEmail" className="block text-xs font-bold text-[#282321] uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
                   <Mail className="w-3.5 h-3.5 text-stone-500" />
                   <span>Email doanh nghiệp (Tùy chọn)</span>
                 </label>
                 <input
+                  id="leadEmail"
+                  name="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => handleChange('email', e.target.value)}
@@ -430,6 +473,8 @@ TRẠNG THÁI: Đã tiếp nhận - Chuyên viên B2B sẽ phản hồi báo gi�
                 <span>Ghi chú thêm (Yêu cầu in logo, ngày giao mong muốn...)</span>
               </label>
               <textarea
+                id="leadNotes"
+                name="notes"
                 value={formData.notes}
                 onChange={(e) => handleChange('notes', e.target.value)}
                 rows={3}

@@ -4,7 +4,7 @@ import { BRAND_INFO } from '../data/products';
 
 export const BrandIntro: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-[#F7F3EC] border-b border-[#E8D5A7]/40">
+    <section id="about" className="py-20 bg-[#F7F3EC] border-b border-[#E8D5A7]/40 scroll-mt-24 lg:scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Visual Showcase on Left */}

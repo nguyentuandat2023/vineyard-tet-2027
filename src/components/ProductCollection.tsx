@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Eye, ArrowRight, Check, Sparkles } from 'lucide-react';
 import { PRODUCTS, ProductHamper } from '../data/products';
 import { ProductModal } from './ProductModal';
+import { trackProductView, trackCtaClick } from '../utils/analytics';
 
 interface ProductCollectionProps {
   onSelectProductForQuote: (productName: string) => void;
@@ -26,8 +27,18 @@ export const ProductCollection: React.FC<ProductCollectionProps> = ({
     return true;
   });
 
+  const getColSpan = (idx: number, count: number) => {
+    if (count === 5) {
+      return idx < 3 ? 'lg:col-span-2' : 'lg:col-span-3';
+    }
+    if (count === 4) return 'lg:col-span-3';
+    if (count === 3) return 'lg:col-span-2';
+    if (count === 2) return 'lg:col-span-3';
+    return 'lg:col-span-6';
+  };
+
   return (
-    <section id="collection" className="py-20 bg-white border-b border-[#E8D5A7]/40">
+    <section id="collection" className="py-20 bg-white border-b border-[#E8D5A7]/40 scroll-mt-24 lg:scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
@@ -62,12 +73,12 @@ export const ProductCollection: React.FC<ProductCollectionProps> = ({
           </div>
         </div>
 
-        {/* 5 Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* 5 Product Grid with balanced multi-row columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {filteredProducts.map((product, index) => (
             <article
               key={product.id}
-              className="bg-[#F7F3EC] rounded-2xl overflow-hidden border border-[#C49B43]/25 shadow-sm hover:shadow-xl hover:border-[#C49B43]/60 transition-all duration-300 flex flex-col group"
+              className={`bg-[#F7F3EC] rounded-2xl overflow-hidden border border-[#C49B43]/25 shadow-sm hover:shadow-xl hover:border-[#C49B43]/60 transition-all duration-300 flex flex-col group ${getColSpan(index, filteredProducts.length)}`}
             >
               {/* Product Visual Container */}
               <div className="relative bg-gradient-to-b from-white to-[#F7F3EC] p-6 flex items-center justify-center min-h-[300px] sm:min-h-[340px] border-b border-stone-200/60 overflow-hidden">
@@ -91,7 +102,10 @@ export const ProductCollection: React.FC<ProductCollectionProps> = ({
 
                 {/* Quick inspect overlay button */}
                 <button
-                  onClick={() => setActiveProduct(product)}
+                  onClick={() => {
+                    trackProductView(product.id, product.name);
+                    setActiveProduct(product);
+                  }}
                   className="absolute bottom-3 right-3 bg-white/95 text-stone-800 p-2.5 rounded-full shadow hover:bg-[#68151F] hover:text-white transition-colors opacity-90 group-hover:opacity-100"
                   title="Xem chi tiết hộp quà"
                   aria-label={`Xem chi tiết ${product.name}`}
@@ -135,14 +149,20 @@ export const ProductCollection: React.FC<ProductCollectionProps> = ({
                 {/* CTAs */}
                 <div className="pt-2 border-t border-stone-200/70 flex items-center gap-2.5">
                   <button
-                    onClick={() => onSelectProductForQuote(product.name)}
+                    onClick={() => {
+                      trackCtaClick(`Yêu Cầu Báo Giá: ${product.name}`, 'Product Card Button');
+                      onSelectProductForQuote(product.name);
+                    }}
                     className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-[#B52C32] hover:bg-[#8e1d23] transition-colors shadow-xs active:scale-98"
                   >
                     <span>Yêu Cầu Báo Giá</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                   <button
-                    onClick={() => setActiveProduct(product)}
+                    onClick={() => {
+                      trackProductView(product.id, product.name);
+                      setActiveProduct(product);
+                    }}
                     className="py-2.5 px-3 rounded-xl text-xs font-medium text-stone-700 hover:text-black bg-stone-200/70 hover:bg-stone-200 transition-colors"
                   >
                     Chi Tiết

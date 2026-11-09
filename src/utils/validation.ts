@@ -111,32 +111,6 @@ export function saveLead(data: LeadFormData): SavedLead {
   return newLead;
 }
 
-/**
- * Gửi thông tin khách hàng về Google Sheet qua Google Apps Script Web App.
- * Dùng text/plain + no-cors để trình duyệt không chặn (Apps Script không hỗ trợ CORS preflight).
- */
-export async function sendLeadToSheet(url: string, lead: SavedLead): Promise<void> {
-  if (!url) return;
-  await fetch(url, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify({
-      id: lead.id,
-      createdAt: new Date(lead.createdAt).toLocaleString('vi-VN', { timeZone: 'Asia/Ho_Chi_Minh' }),
-      fullName: lead.fullName,
-      companyName: lead.companyName,
-      phone: lead.phone,
-      email: lead.email || '',
-      interestedProduct: lead.interestedProduct,
-      quantityRange: lead.quantityRange,
-      purpose: (lead.purpose || []).join(', '),
-      notes: lead.notes || '',
-      page: typeof window !== 'undefined' ? window.location.href : ''
-    })
-  });
-}
-
 export function getStoredLeads(): SavedLead[] {
   try {
     const raw = localStorage.getItem(LEADS_STORAGE_KEY);

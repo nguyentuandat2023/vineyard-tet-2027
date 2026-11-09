@@ -3,6 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Safeguard for browser extension network interceptors that attempt to override window.fetch
+      (function() {
+        try {
+          var _fetch = window.fetch;
+          Object.defineProperty(window, 'fetch', {
+            get: function() { return _fetch; },
+            set: function(fn) { _fetch = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {}
+
+        try {
+          var _xhr = window.XMLHttpRequest;
+          Object.defineProperty(window, 'XMLHttpRequest', {
+            get: function() { return _xhr; },
+            set: function(fn) { _xhr = fn; },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {}
+      })();
+    </script>
     <title>Quà Tết Doanh Nghiệp Cao Cấp | Vineyard.vn</title>
     <meta name="description" content="Khám phá bộ sưu tập quà Tết HAMPER cao cấp dành cho doanh nghiệp. Tư vấn quà tặng đối tác, khách hàng, in logo và báo giá số lượng lớn tại Vineyard.vn." />
     <meta name="keywords" content="Quà Tết doanh nghiệp, Hộp quà Tết cao cấp, HAMPER quà Tết, Quà tặng đối tác, Quà tặng khách hàng, Quà tặng doanh nghiệp số lượng lớn, Hộp quà rượu vang, Vineyard.vn" />
@@ -25,6 +49,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&display=swap" rel="stylesheet">
+
+    <!-- Google Consent Mode v2 & DataLayer Initialization -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Default consent state (Privacy compliant: update via Cookie Banner if active)
+      gtag('consent', 'default', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    </script>
 
     <!-- Schema.org Organization and WebSite JSON-LD -->
     <script type="application/ld+json">

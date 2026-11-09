@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Sparkles, Building2, Truck } from 'lucide-react';
+import { trackCtaClick } from '../utils/analytics';
 
 interface HeroProps {
   onOpenQuote: () => void;
@@ -38,7 +39,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreCollection }) 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
               <button
-                onClick={onOpenQuote}
+                onClick={() => {
+                  trackCtaClick('Nhận Báo Giá Ngay', 'Hero Primary Button');
+                  onOpenQuote();
+                }}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold uppercase tracking-wider text-white bg-[#B52C32] hover:bg-[#972228] transition-all duration-200 shadow-lg shadow-[#36070C]/50 hover:shadow-xl hover:shadow-[#B52C32]/30 active:scale-98"
               >
                 <span>Nhận Báo Giá Ngay</span>
@@ -46,7 +50,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuote, onExploreCollection }) 
               </button>
 
               <button
-                onClick={onExploreCollection}
+                onClick={() => {
+                  trackCtaClick('Khám Phá Bộ Sưu Tập', 'Hero Secondary Button');
+                  onExploreCollection();
+                }}
                 className="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-medium tracking-wider text-[#E8D5A7] border border-[#C49B43]/50 hover:bg-[#C49B43]/15 transition-all duration-200 active:scale-98"
               >
                 <span>Khám Phá Bộ Sưu Tập</span>

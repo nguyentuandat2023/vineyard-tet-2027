@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { BrandIntro } from './components/BrandIntro';
@@ -13,13 +13,80 @@ import { LeadForm } from './components/LeadForm';
 import { Footer } from './components/Footer';
 import { FloatingActions } from './components/FloatingActions';
 import { PolicyModal } from './components/PolicyModal';
+import { captureAndPersistUtmParams } from './utils/analytics';
+import { apiClient } from './admin/apiClient';
+import { Login } from './admin/pages/Login';
+import { AdminLayout } from './admin/AdminLayout';
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [adminUser, setAdminUser] = useState<any>(() => apiClient.getCurrentUser());
+
   const [selectedProduct, setSelectedProduct] = useState<string | undefined>();
   const [selectedTier, setSelectedTier] = useState<string | undefined>();
   const [selectedNote, setSelectedNote] = useState<string | undefined>();
   const [policyType, setPolicyType] = useState<'privacy' | 'terms' | null>(null);
 
+  useEffect(() => {
+    // Capture URL UTM params on entry
+    captureAndPersistUtmParams();
+
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+      setAdminUser(apiClient.getCurrentUser());
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLoginSuccess = (user: any) => {
+    setAdminUser(user);
+    navigateTo('/admin');
+  };
+
+  const handleLogout = async () => {
+    try {
+      await apiClient.request('/api/auth/logout', { method: 'POST' });
+    } catch {
+      // ignore
+    }
+    apiClient.clearAuth();
+    setAdminUser(null);
+    navigateTo('/admin/login');
+  };
+
+  // ==========================================
+  // ROUTE: ADMIN DASHBOARD / ADMIN LOGIN
+  // ==========================================
+  if (currentPath.startsWith('/admin')) {
+    if (!adminUser) {
+      return (
+        <Login
+          onLoginSuccess={handleLoginSuccess}
+          onBackToLanding={() => navigateTo('/')}
+        />
+      );
+    }
+
+    return (
+      <AdminLayout
+        user={adminUser}
+        onLogout={handleLogout}
+        onBackToLanding={() => navigateTo('/')}
+      />
+    );
+  }
+
+  // ==========================================
+  // ROUTE: PUBLIC LUXURY LANDING PAGE
+  // ==========================================
   const scrollToQuote = (product?: string, tier?: string, note?: string) => {
     if (product) setSelectedProduct(product);
     if (tier) setSelectedTier(tier);

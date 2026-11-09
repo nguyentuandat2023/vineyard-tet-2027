@@ -8,7 +8,7 @@ interface BulkOrderProps {
 
 export const BulkOrder: React.FC<BulkOrderProps> = ({ onSelectTier }) => {
   return (
-    <section id="bulk-order" className="py-20 bg-white border-b border-[#E8D5A7]/40">
+    <section id="bulk-order" className="py-20 bg-white border-b border-[#E8D5A7]/40 scroll-mt-24 lg:scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">

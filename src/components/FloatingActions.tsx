@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Phone, ChevronUp, MessageCircle, FileText } from 'lucide-react';
 import { BRAND_INFO } from '../data/products';
+import { trackPhoneClick, trackZaloClick, trackCtaClick } from '../utils/analytics';
 
 interface FloatingActionsProps {
   onOpenQuote: () => void;
@@ -30,6 +31,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
           href={BRAND_INFO.zaloLink}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackZaloClick(BRAND_INFO.zalo, 'Desktop Floating Button')}
           className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0068FF] text-white shadow-xl hover:bg-[#0054d1] transition-all transform hover:scale-105 active:scale-95"
           aria-label="Tư vấn quà Tết qua Zalo"
         >
@@ -42,6 +44,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
         {/* Hotline Call Button */}
         <a
           href={`tel:${BRAND_INFO.hotlineRaw}`}
+          onClick={() => trackPhoneClick(BRAND_INFO.hotlineRaw, 'Desktop Floating Button')}
           className="group flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#B52C32] text-white shadow-xl hover:bg-[#8e1d23] transition-all transform hover:scale-105 active:scale-95"
           aria-label="Gọi điện thoại trực tiếp tư vấn báo giá"
         >
@@ -67,6 +70,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#F7F3EC]/95 backdrop-blur-md border-t border-[#C49B43]/30 px-3 py-2 shadow-2xl flex items-center justify-between gap-2">
         <a
           href={`tel:${BRAND_INFO.hotlineRaw}`}
+          onClick={() => trackPhoneClick(BRAND_INFO.hotlineRaw, 'Mobile Sticky Bar')}
           className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold text-[#68151F] bg-white border border-[#68151F]/30 shadow-xs"
         >
           <Phone className="w-3.5 h-3.5 text-[#B52C32]" />
@@ -77,6 +81,7 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
           href={BRAND_INFO.zaloLink}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackZaloClick(BRAND_INFO.zalo, 'Mobile Sticky Bar')}
           className="flex-1 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#0068FF] shadow-xs"
         >
           <MessageCircle className="w-3.5 h-3.5 text-white" />
@@ -84,7 +89,10 @@ export const FloatingActions: React.FC<FloatingActionsProps> = ({
         </a>
 
         <button
-          onClick={onOpenQuote}
+          onClick={() => {
+            trackCtaClick('Nhận Báo Giá', 'Mobile Sticky Bar Button');
+            onOpenQuote();
+          }}
           className="flex-1.5 inline-flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-[#B52C32] shadow-sm"
         >
           <FileText className="w-3.5 h-3.5 text-[#E8D5A7]" />

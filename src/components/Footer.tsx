@@ -9,7 +9,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onScrollToTop }) => {
   return (
-    <footer className="bg-[#420A10] text-[#F7F3EC] border-t border-[#C49B43]/30 pt-16 pb-12">
+    <footer className="bg-[#420A10] text-[#F7F3EC] border-t border-[#C49B43]/30 pt-16 pb-28 lg:pb-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#C49B43]/20">
           {/* Col 1: Brand & Parent Company */}
@@ -125,21 +125,29 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPolicy, onScrollToTop }) =
           <div className="flex items-center gap-5">
             <button
               onClick={() => onOpenPolicy('privacy')}
-              className="hover:text-white underline-offset-4 hover:underline"
+              className="hover:text-white underline-offset-4 hover:underline cursor-pointer"
             >
               Chính sách bảo mật
             </button>
             <span>·</span>
             <button
               onClick={() => onOpenPolicy('terms')}
-              className="hover:text-white underline-offset-4 hover:underline"
+              className="hover:text-white underline-offset-4 hover:underline cursor-pointer"
             >
               Điều khoản sử dụng
             </button>
             <span>·</span>
+            <a
+              href="/admin"
+              className="text-[#E8D5A7] hover:text-white font-medium flex items-center gap-1 cursor-pointer"
+              title="Cổng Quản Trị Hệ Thống"
+            >
+              <span>Quản Trị B2B</span>
+            </a>
+            <span>·</span>
             <button
               onClick={onScrollToTop}
-              className="inline-flex items-center gap-1 text-[#E8D5A7] hover:text-white ml-2"
+              className="inline-flex items-center gap-1 text-[#E8D5A7] hover:text-white ml-2 cursor-pointer"
               title="Về đầu trang"
             >
               <span>Đầu trang</span>

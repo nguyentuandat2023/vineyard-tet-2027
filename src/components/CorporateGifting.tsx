@@ -15,7 +15,7 @@ export const CorporateGifting: React.FC<CorporateGiftingProps> = ({ onOpenQuote 
   };
 
   return (
-    <section id="corporate" className="py-20 bg-[#68151F] text-white relative overflow-hidden">
+    <section id="corporate" className="py-20 bg-[#68151F] text-white relative overflow-hidden scroll-mt-24 lg:scroll-mt-28">
       {/* Decorative gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#4A0C14] via-[#68151F] to-[#36070C] pointer-events-none" />
 
