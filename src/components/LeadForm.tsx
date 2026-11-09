@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Send, CheckCircle2, AlertCircle, Phone, Building2, User, Mail, Gift, Layers, FileText, Download, RefreshCw } from 'lucide-react';
-import { validateLeadForm, saveLead, LeadFormData, SavedLead } from '../utils/validation';
+import { validateLeadForm, saveLead, sendLeadToSheet, LeadFormData, SavedLead } from '../utils/validation';
+import { GOOGLE_SHEET_URL } from '../config';
 import { PRODUCTS, BRAND_INFO } from '../data/products';
 import { trackFormStart, trackGenerateLead, getPersistedUtmParams, trackCtaClick } from '../utils/analytics';
 
@@ -107,6 +108,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       if (data.success && data.lead) {
         setSubmittedLead(data.lead);
         saveLead(formData); // also save locally
+        sendLeadToSheet(GOOGLE_SHEET_URL, data.lead).catch(() => {});
         trackGenerateLead({
           leadId: data.lead.id,
           productName: data.lead.interestedProduct,
@@ -120,8 +122,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       console.warn('API submission failed, falling back to local storage:', err);
     }
 
-    // Fallback if offline / server booting
+    // Fallback if offline / server booting / static host
     const saved = saveLead(formData);
+    sendLeadToSheet(GOOGLE_SHEET_URL, saved).catch(() => {});
     setSubmittedLead(saved);
     setIsSubmitting(false);
 
